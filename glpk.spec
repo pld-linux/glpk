@@ -12,15 +12,28 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The GLPK package is intended for solving linear programming (LP) and
-mixed integer linear programming (MIP) problems. It is a set of routines
-organized in the form of a library and written in the ANSI C programming
-language.
+mixed integer linear programming (MIP) problems. It is a set of
+routines organized in the form of a library and written in the ANSI C
+programming language.
 
 %description -l pl
 Pakiet GLPK s³u¿y do rozwi±zywania problemów programowania liniowego
 (LP) oraz mieszanych problemów ca³kowitoliczbowego programowania
 liniowego (MIP). Jest to zestaw narzêdzi zorganizowanych w formie
 biblioteki i napisanych w ANSI C.
+
+%package devel
+Summary:	Solver LP and MIP problems - developers libraries.
+Summary(pl):	Narzêdzie do rozwi±zywania problemów LP i MIP - biblioteki.
+Group:		Development/Libraries
+Requires:	%{name} = %{version}
+
+%description devel
+Solver LP and MIP problems - libraries for developers
+
+%description devel -l pl
+Narzêdzie do rozwi±zywania problemów LP i MIP - biblioteki dla
+programistów.
 
 %prep
 %setup -q
@@ -43,6 +56,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
+%doc README NEWS doc/*
+
+%files devel
+%defattr(644,root,root,755)
 %{_libdir}/*.a
 %{_includedir}/*.h
-%doc README NEWS doc/*
