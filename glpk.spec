@@ -1,12 +1,12 @@
 Summary:	Solver LP and MIP problems
 Summary(pl):	Narzêdzie do rozwi±zywania problemów LP i MIP
 Name:		glpk
-Version:	4.0
+Version:	4.3
 Release:	1
 License:	GPL
 Group:		Applications/Math
 Source0:	ftp://ftp.gnu.org/pub/gnu/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	84485df00ca5eda302032e8ce92c29fd
+# Source0-md5:	7d8ca883e71dd5cfdf0d1850b602e9d4
 URL:		http://www.gnu.org/software/glpk/glpk.html
 BuildRequires:	autoconf
 BuildRequires:	automake
