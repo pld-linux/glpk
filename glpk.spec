@@ -4,7 +4,7 @@ Name:		glpk
 Version:	4.0
 Release:	1
 License:	GPL
-Group:		Applications/Text
+Group:		Applications/Math
 Source0:	ftp://ftp.gnu.org/pub/gnu/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	84485df00ca5eda302032e8ce92c29fd
 URL:		http://www.gnu.org/software/glpk/glpk.html
