@@ -5,7 +5,7 @@ Version:	4.8
 Release:	1
 License:	GPL v2
 Group:		Applications/Math
-Source0:	ftp://ftp.gnu.org/pub/gnu/%{name}/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/pub/gnu/glpk/%{name}-%{version}.tar.gz
 # Source0-md5:	ec4df7a56a4ed98369c9f0bc7c82322b
 URL:		http://www.gnu.org/software/glpk/glpk.html
 BuildRequires:	autoconf
@@ -25,10 +25,10 @@ liniowego (MIP). Jest to zestaw narzêdzi zorganizowanych w formie
 biblioteki i napisanych w ANSI C.
 
 %package devel
-Summary:	Solver LP and MIP problems - developers libraries.
+Summary:	Solver LP and MIP problems - developers libraries
 Summary(pl):	Narzêdzie do rozwi±zywania problemów LP i MIP - biblioteki.
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Solver LP and MIP problems - libraries for developers
