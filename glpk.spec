@@ -1,5 +1,5 @@
 Summary:	Solver LP and MIP problems
-Summary(pl):	Narz阣zie do rozwi眤ywania problem體 LP i MIP
+Summary(pl.UTF-8):   Narz臋dzie do rozwi膮zywania problem贸w LP i MIP
 Name:		glpk
 Version:	4.11
 Release:	1
@@ -18,24 +18,24 @@ mixed integer linear programming (MIP) problems. It is a set of
 routines organized in the form of a library and written in the ANSI C
 programming language.
 
-%description -l pl
-Pakiet GLPK s硊縴 do rozwi眤ywania problem體 programowania liniowego
-(LP) oraz mieszanych problem體 ca砶owitoliczbowego programowania
-liniowego (MIP). Jest to zestaw narz阣zi zorganizowanych w formie
+%description -l pl.UTF-8
+Pakiet GLPK s艂u偶y do rozwi膮zywania problem贸w programowania liniowego
+(LP) oraz mieszanych problem贸w ca艂kowitoliczbowego programowania
+liniowego (MIP). Jest to zestaw narz臋dzi zorganizowanych w formie
 biblioteki i napisanych w ANSI C.
 
 %package devel
 Summary:	Solver LP and MIP problems - developers libraries
-Summary(pl):	Narz阣zie do rozwi眤ywania problem體 LP i MIP - biblioteki.
+Summary(pl.UTF-8):   Narz臋dzie do rozwi膮zywania problem贸w LP i MIP - biblioteki.
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Solver LP and MIP problems - libraries for developers
 
-%description devel -l pl
-Narz阣zie do rozwi眤ywania problem體 LP i MIP - biblioteki dla
-programist體.
+%description devel -l pl.UTF-8
+Narz臋dzie do rozwi膮zywania problem贸w LP i MIP - biblioteki dla
+programist贸w.
 
 %prep
 %setup -q
