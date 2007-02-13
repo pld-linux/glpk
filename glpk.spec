@@ -1,5 +1,5 @@
 Summary:	Solver LP and MIP problems
-Summary(pl.UTF-8):   Narzędzie do rozwiązywania problemów LP i MIP
+Summary(pl.UTF-8):	Narzędzie do rozwiązywania problemów LP i MIP
 Name:		glpk
 Version:	4.11
 Release:	1
@@ -26,7 +26,7 @@ biblioteki i napisanych w ANSI C.
 
 %package devel
 Summary:	Solver LP and MIP problems - developers libraries
-Summary(pl.UTF-8):   Narzędzie do rozwiązywania problemów LP i MIP - biblioteki.
+Summary(pl.UTF-8):	Narzędzie do rozwiązywania problemów LP i MIP - biblioteki.
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
