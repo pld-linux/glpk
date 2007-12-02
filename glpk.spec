@@ -1,12 +1,12 @@
 Summary:	Solver LP and MIP problems
 Summary(pl.UTF-8):	Narzędzie do rozwiązywania problemów LP i MIP
 Name:		glpk
-Version:	4.11
+Version:	4.24
 Release:	1
 License:	GPL v2
 Group:		Applications/Math
 Source0:	ftp://ftp.gnu.org/pub/gnu/glpk/%{name}-%{version}.tar.gz
-# Source0-md5:	8f3ceb60b8a488cb93d5acd31fb780ac
+# Source0-md5:	765dcecc20dc6b80362e65c755f41976
 URL:		http://www.gnu.org/software/glpk/glpk.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -37,6 +37,19 @@ Solver LP and MIP problems - libraries for developers
 Narzędzie do rozwiązywania problemów LP i MIP - biblioteki dla
 programistów.
 
+%package static
+Summary:	Solver LP and MIP problems - static libraries
+Summary(pl.UTF-8):	Narzędzie do rozwiązywania problemów LP i MIP - biblioteki statyczne
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Solver LP and MIP problems - static libraries.
+
+%description devel -l pl.UTF-8
+Narzędzie do rozwiązywania problemów LP i MIP - biblioteki
+statyczne.
+
 %prep
 %setup -q
 
@@ -57,12 +70,21 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_includedir}}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
 %doc README NEWS doc/*
 %attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/*.so.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%attr(755,root,root) %{_libdir}/*.so
+%{_libdir}/*.la
 %{_includedir}/*.h
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/*.a
