@@ -2,7 +2,7 @@ Summary:	Solver LP and MIP problems
 Summary(pl.UTF-8):	Narzędzie do rozwiązywania problemów LP i MIP
 Name:		glpk
 Version:	4.27
-Release:	2
+Release:	3
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	ftp://ftp.gnu.org/pub/gnu/glpk/%{name}-%{version}.tar.gz
@@ -56,7 +56,7 @@ statyczna.
 %setup -q
 
 %build
-%{__libtoolize}
+%{__libtoolize} --install
 %{__aclocal}
 %{__autoconf}
 %configure
