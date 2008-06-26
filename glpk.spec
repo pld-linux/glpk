@@ -5,12 +5,13 @@ Version:	4.27
 Release:	3
 License:	GPL v3+
 Group:		Applications/Math
-Source0:	ftp://ftp.gnu.org/pub/gnu/glpk/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/glpk/%{name}-%{version}.tar.gz
 # Source0-md5:	aa089dd6a5becd9251d9e716d660316d
 URL:		http://www.gnu.org/software/glpk/glpk.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libiodbc-devel
+BuildRequires:	libtool >= 2:2.2
 BuildRequires:	mysql-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -49,8 +50,7 @@ Requires:	%{name}-devel = %{version}-%{release}
 Solver LP and MIP problems - static library.
 
 %description devel -l pl.UTF-8
-Narzędzie do rozwiązywania problemów LP i MIP - biblioteka
-statyczna.
+Narzędzie do rozwiązywania problemów LP i MIP - biblioteka statyczna.
 
 %prep
 %setup -q
