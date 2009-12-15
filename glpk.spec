@@ -10,6 +10,7 @@ Source0:	http://ftp.gnu.org/gnu/glpk/%{name}-%{version}.tar.gz
 URL:		http://www.gnu.org/software/glpk/glpk.html
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gmp-devel
 BuildRequires:	libiodbc-devel
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	mysql-devel
