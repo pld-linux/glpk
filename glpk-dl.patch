@@ -1,0 +1,10 @@
+--- glpk-4.44/configure.ac.orig	2010-06-03 10:00:00.000000000 +0200
++++ glpk-4.44/configure.ac	2010-10-16 15:30:29.667743558 +0200
+@@ -106,6 +106,7 @@
+ elif test "$enable_dl" = "dlfcn"; then
+    AC_MSG_RESULT([dlfcn])
+    AC_DEFINE([HAVE_DLFCN], [1], [N/A])
++   LIBS="-ldl $LIBS"
+ else
+    AC_MSG_RESULT([no])
+ fi

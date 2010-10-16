@@ -1,19 +1,28 @@
 Summary:	Solver LP and MIP problems
 Summary(pl.UTF-8):	Narzędzie do rozwiązywania problemów LP i MIP
 Name:		glpk
-Version:	4.27
-Release:	4
+Version:	4.44
+Release:	1
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	http://ftp.gnu.org/gnu/glpk/%{name}-%{version}.tar.gz
-# Source0-md5:	aa089dd6a5becd9251d9e716d660316d
+# Source0-md5:	f2ac7013bc0420d730d052e7ba24bdb1
+Patch0:		%{name}-dl.patch
+Patch1:		%{name}-sonames.patch
 URL:		http://www.gnu.org/software/glpk/glpk.html
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gmp-devel
-BuildRequires:	libiodbc-devel
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	mysql-devel
+BuildRequires:	unixODBC-devel
+%ifarch %{x8664} ppc64 sparc64 s390x
+Suggests:	libodbc.so.1()(64bit)
+Suggests:	libmysqlclient.so.16()(64bit)
+%else
+Suggests:	libodbc.so.1
+Suggests:	libmysqlclient.so.16
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -55,18 +64,26 @@ Narzędzie do rozwiązywania problemów LP i MIP - biblioteka statyczna.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
-%{__libtoolize} --install
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
-%configure
+%{__autoheader}
+%{__automake}
+%configure \
+	--enable-dl=dlfcn \
+	--enable-mysql \
+	--enable-odbc=unix \
+	--with-gmp \
+	--with-zlib
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_includedir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -79,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README doc/{*.txt,glpk.ps,gmpl.ps,memo}
+%doc AUTHORS ChangeLog NEWS README THANKS doc/{*.txt,*.pdf,notes}
 %attr(755,root,root) %{_bindir}/glpsol
 %attr(755,root,root) %{_libdir}/libglpk.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libglpk.so.0
