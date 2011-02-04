@@ -59,7 +59,7 @@ Requires:	%{name}-devel = %{version}-%{release}
 %description static
 Solver LP and MIP problems - static library.
 
-%description devel -l pl.UTF-8
+%description static -l pl.UTF-8
 Narzędzie do rozwiązywania problemów LP i MIP - biblioteka statyczna.
 
 %prep
