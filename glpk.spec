@@ -1,12 +1,12 @@
 Summary:	Solver LP and MIP problems
 Summary(pl.UTF-8):	Narzędzie do rozwiązywania problemów LP i MIP
 Name:		glpk
-Version:	4.48
+Version:	4.49
 Release:	1
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	http://ftp.gnu.org/gnu/glpk/%{name}-%{version}.tar.gz
-# Source0-md5:	1484ef197444305b2afbc942bf3f0905
+# Source0-md5:	e0275c0e3e0ec5b6ef3d61c391e59170
 Patch0:		%{name}-dl.patch
 Patch1:		%{name}-sonames.patch
 URL:		http://www.gnu.org/software/glpk/glpk.html
@@ -14,14 +14,14 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gmp-devel
 BuildRequires:	libtool >= 2:2.2
-BuildRequires:	mysql-devel
-BuildRequires:	unixODBC-devel
+BuildRequires:	mysql-devel >= 5.5.10
+BuildRequires:	unixODBC-devel >= 2.3.1
 %ifarch %{x8664} ppc64 sparc64 s390x
-Suggests:	libodbc.so.1()(64bit)
-Suggests:	libmysqlclient.so.16()(64bit)
+Suggests:	libodbc.so.2()(64bit)
+Suggests:	libmysqlclient.so.18()(64bit)
 %else
-Suggests:	libodbc.so.1
-Suggests:	libmysqlclient.so.16
+Suggests:	libodbc.so.2
+Suggests:	libmysqlclient.so.18
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -98,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README THANKS doc/{*.txt,*.pdf,notes}
 %attr(755,root,root) %{_bindir}/glpsol
 %attr(755,root,root) %{_libdir}/libglpk.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libglpk.so.33
+%attr(755,root,root) %ghost %{_libdir}/libglpk.so.34
 
 %files devel
 %defattr(644,root,root,755)
