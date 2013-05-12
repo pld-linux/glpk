@@ -1,3 +1,5 @@
+# Note: as of 4.49 old API was removed making all glpk users (ppl and octave) not to build.
+#	Please don't STBR glpk >= 4.49 until ppl and octave are ported to new glpk API
 Summary:	Solver LP and MIP problems
 Summary(pl.UTF-8):	Narzędzie do rozwiązywania problemów LP i MIP
 Name:		glpk
