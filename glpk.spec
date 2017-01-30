@@ -1,12 +1,12 @@
 Summary:	Solver LP and MIP problems
 Summary(pl.UTF-8):	Narzędzie do rozwiązywania problemów LP i MIP
 Name:		glpk
-Version:	4.60
+Version:	4.61
 Release:	1
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	http://ftp.gnu.org/gnu/glpk/%{name}-%{version}.tar.gz
-# Source0-md5:	eda7965907f6919ffc69801646f13c3e
+# Source0-md5:	3ce3e224a8b6e75a1a0b378445830f21
 Patch0:		%{name}-dl.patch
 Patch1:		%{name}-sonames.patch
 URL:		http://www.gnu.org/software/glpk/glpk.html
@@ -15,13 +15,17 @@ BuildRequires:	automake
 BuildRequires:	gmp-devel
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	mysql-devel >= 5.5.10
+BuildRequires:	rpmbuild(macros) >= 1.721
+BuildRequires:	sed >= 4.0
 BuildRequires:	unixODBC-devel >= 2.3.1
-%ifarch %{x8664} ppc64 sparc64 s390x
-Suggests:	libodbc.so.2()(64bit)
-Suggests:	libmysqlclient.so.18()(64bit)
-%else
-Suggests:	libodbc.so.2
-Suggests:	libmysqlclient.so.18
+%if 0%{?_soname_prov:1}
+%define	libodbc_soname	libodbc.so.2
+%define	libmysqlclient_soname	libmysqlclient.so.18
+# BRs to verify current sonames (bump the above if not satisfied)
+BuildRequires:	%{_soname_prov %{libodbc_soname}}
+BuildRequires:	%{_soname_prov %{libmysqlclient_soname}}
+Suggests:	%{_soname_prov %{libodbc_soname}}
+Suggests:	%{_soname_prov %{libmysqlclient_soname}}
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -66,6 +70,9 @@ Narzędzie do rozwiązywania problemów LP i MIP - biblioteka statyczna.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+
+%{__sed} -i -e 's,@libodbc_soname@,%{libodbc_soname},' \
+            -e 's,@libmysqlclient_soname@,%{libmysqlclient_soname},' configure.ac
 
 %build
 %{__libtoolize}

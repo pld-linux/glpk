@@ -8,8 +8,8 @@
 -      LIBODBC="libodbc.so"
 -      LIBMYSQL="libmysqlclient.so"
 +      LIBIODBC="libiodbc.so.2"
-+      LIBODBC="libodbc.so.2"
-+      LIBMYSQL="libmysqlclient.so.18"
++      LIBODBC="@libodbc_soname@"
++      LIBMYSQL="@libmysqlclient_soname@"
        ;;
  esac
  
