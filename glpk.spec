@@ -2,7 +2,7 @@ Summary:	Solver LP and MIP problems
 Summary(pl.UTF-8):	Narzędzie do rozwiązywania problemów LP i MIP
 Name:		glpk
 Version:	4.65
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/Math
 Source0:	https://ftp.gnu.org/gnu/glpk/%{name}-%{version}.tar.gz
@@ -19,8 +19,8 @@ BuildRequires:	rpmbuild(macros) >= 1.721
 BuildRequires:	sed >= 4.0
 BuildRequires:	unixODBC-devel >= 2.3.1
 %if 0%{?_soname_prov:1}
-%define	libodbc_soname	libodbc.so.2
-%define	libmysqlclient_soname	libmysqlclient.so.18
+%define	libodbc_soname		libodbc.so.2
+%define	libmysqlclient_soname	libmysqlclient.so.20
 # BRs to verify current sonames (bump the above if not satisfied)
 BuildRequires:	%{_soname_prov %{libodbc_soname}}
 BuildRequires:	%{_soname_prov %{libmysqlclient_soname}}
