@@ -68,8 +68,8 @@ Narzędzie do rozwiązywania problemów LP i MIP - biblioteka statyczna.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %{__sed} -i -e 's,@libodbc_soname@,%{libodbc_soname},' \
             -e 's,@libmysqlclient_soname@,%{libmysqlclient_soname},' configure.ac
